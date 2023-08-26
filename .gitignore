@@ -1,0 +1,13 @@
+# VSCode specific files and directories
+.vscode/
+
+# npm related files and directories
+node_modules/
+npm-debug.log
+package-lock.json
+
+# webpack related files and directories
+dist/
+build/
+.webpack/
+.cache/
