@@ -1,23 +1,3 @@
-```powershell
-npm init -y
-npm i --save-dev webpack webpack-cli
-ni webpack.config.js
-@("fonts", "images", "scripts", "sass") | %{mkdir src/$_}
-
-npm i --save-dev sass sass-loader postcss-loader style-loader css-loader
-npm i --save-dev autoprefixer cssnano
-npm i --save-dev mini-css-extract-plugin html-webpack-plugin
-ni postcss.config.js
-ni src/sass/style.scss
-
-npm install --save-dev typescript ts-loader
-ni tsconfig.json
-echo "import `"../sass/style.scss`";">src/scripts/index.ts
-npm install --save-dev webpack-dev-server
-```
-
-## webpack.config.js
-```js
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -94,45 +74,3 @@ module.exports = (env) => {
     },
   };
 }
-```
-## .gitignore
-```
-# VSCode specific files and directories
-.vscode/
-
-# npm related files and directories
-node_modules/
-npm-debug.log
-package-lock.json
-
-# webpack related files and directories
-dist/
-build/
-.webpack/
-.cache/
-```
-## teconfig.json
-```json
-{
-  "compilerOptions": {
-    "outDir": "./dist/",
-    "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
-    "allowJs": true,
-    "moduleResolution": "node",
-    "sourceMap": false,
-    "alwaysStrict": true
-  }
-}
-```
-## postcss.config.js
-```js
-module.exports = {
-    plugins: [
-        require('autoprefixer'),
-        require('cssnano'),
-        // More postCSS modules here if needed
-    ]
-}
-```
